@@ -1,21 +1,25 @@
 import pyttsx3
 
 def text_to_speech(text, save_to_file=None):
-    # Initialize the TTS engine
-    engine = pyttsx3.init()
+    try:
+        # Initialize the TTS engine
+        engine = pyttsx3.init()
 
-    # Set properties (optional)
-    engine.setProperty('rate', 150)  # Speed of speech
-    engine.setProperty('volume', 1.0)  # Volume level (0.0 to 1.0)
+        # Set properties (optional)
+        engine.setProperty('rate', 150)  # Speed of speech
+        engine.setProperty('volume', 1.0)  # Volume level (0.0 to 1.0)
 
-    # Convert the text to speech
-    # engine.say(text)
+        # Convert the text to speech
+        # engine.say(text)
 
-    if save_to_file:
-        # Save the audio to a file
-        engine.save_to_file(text, save_to_file)
-        engine.runAndWait()  # This line is optional, remove if you don't want to play it
-        print(f"Audio saved to: {save_to_file}")
+        if save_to_file:
+            # Save the audio to a file
+            engine.save_to_file(text, save_to_file)
+            engine.runAndWait()  # This line is optional, remove if you don't want to play it
+            print(f"Audio saved to: {save_to_file}")
+    except Exception as e:
+        print(e) 
+        
 
 # Example usage
 if __name__ == "__main__":
